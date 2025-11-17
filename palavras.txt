@@ -1,0 +1,10 @@
+casa
+carro
+fruta
+bola
+livro
+escola
+janela
+gato
+ponte
+rua
