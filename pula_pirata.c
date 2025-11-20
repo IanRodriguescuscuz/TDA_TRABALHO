@@ -2,6 +2,11 @@
 #include <stdlib.h>
 #include <time.h>
 
+void limparBuffer() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF) {}
+}
+
 
 int jogo() {
     int espadas[10] = {0}; // 0 = seguro, 1 = bomba
@@ -51,7 +56,8 @@ int jogo() {
         // Verifica entrada válida
         if (escolha < 0 || escolha > 9) {
             printf("Opcao invalida!\n");
-            break;
+            limparBuffer();
+            continue;
         }
 
         // Verifica se caiu na posição fatal
@@ -66,6 +72,7 @@ int jogo() {
             }
         }
     }
+    return 0;
 
 }
 
@@ -73,6 +80,16 @@ int jogo() {
 
 
 int main() {
-    jogo();
+    int jogar;
+
+    do {
+        jogo();
+
+        printf("\nQuer jogar de novo? 1 = SIM - 0 = NÃO ");
+        scanf("%d", &jogar);
+
+    } while (jogar == 1);
+
+    printf("Até mais! \n");
     return 0;
-}
+    }
